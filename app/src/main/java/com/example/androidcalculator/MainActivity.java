@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.example.androidcalculator.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView tvcalc;
+    private TextView tvcalc,tvvalcalc;
     private Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0,btnPlus,btnMinus,btnMult,btnDivide,btnReset,btnTotal;
     private String operation;
     private float fNum,sNum;
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnReset=findViewById(R.id.reset);
         btnTotal=findViewById(R.id.total);
         tvcalc=findViewById(R.id.calc);
+        tvvalcalc=findViewById(R.id.valcalc);
 
         btn0.setOnClickListener(this);
         btn1.setOnClickListener(this);
@@ -127,27 +128,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
                     case R.id.plus:
                         fNum= Float.parseFloat(operation);
-                        tvcalc.setText(tvcalc.getText().toString() + " + ");
+                        tvvalcalc.setText(tvcalc.getText().toString() + " + ");
+                        tvcalc.setText("");
                         operation="0";
                         add=true;
+                        tvvalcalc.setText(fNum +"+" );
                     break;
                 case R.id.minus:
                     fNum= Float.parseFloat(operation);
-                    tvcalc.setText(tvcalc.getText().toString() + " - ");
+                    tvvalcalc.setText(tvcalc.getText().toString() + " - ");
+                    tvcalc.setText("");
                     operation="0";
                     sub=true;
+                    tvvalcalc.setText(fNum +"+" );
                     break;
                 case R.id.mult:
                     fNum= Float.parseFloat(operation);
-                    tvcalc.setText(tvcalc.getText().toString() + " x ");
+                    tvvalcalc.setText(tvcalc.getText().toString() + " x ");
+                    tvcalc.setText("");
                     operation="0";
                     mul=true;
+                    tvvalcalc.setText(fNum +"+" );
                     break;
                 case R.id.divide:
                     fNum= Float.parseFloat(operation);
-                    tvcalc.setText(tvcalc.getText().toString() + " % ");
+                    tvcalc.setText(tvcalc.getText().toString() + " / ");
+                    tvcalc.setText("");
                     operation="0";
                     div=true;
+                    tvvalcalc.setText(fNum +"+" );
                     break;
                 case R.id.reset:
                     tvcalc.setText("0");
