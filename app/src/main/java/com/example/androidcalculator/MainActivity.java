@@ -80,8 +80,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     operation = Float.toString(fNum / sNum);
                     div = false;
                 }
+                tvvalcalc.setText(tvvalcalc.getText().toString() + sNum);
             }
         });
+
     }
         @Override
         public void onClick(View v) {
